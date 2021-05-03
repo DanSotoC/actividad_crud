@@ -14,31 +14,29 @@ import com.everis.formativa.Services.PersonaService;
 
 @RestController
 public class ApiController {
-	
+	/*
 	@Autowired
 	PersonaService personaService;
 	
 	@RequestMapping("/api/persona")
 	public  List<Persona> listaPersona(){
 		
-		List<Persona> lista_persona = personaService.allPersonas();
+		List<Persona> lista_persona = personaService.allPersons();
 		return lista_persona;
 	}
 	
 	@RequestMapping("/api/persona/{id}")
 	public Optional<Persona> buscarPersona(@PathVariable("id") Long id) {
-		
 		Optional<Persona> persona = personaService.findById(id);
 		return persona;
 	}
 	
 	@RequestMapping("/api/persona/eliminar/{id}")
-	public String eliminarAlumno(@PathVariable("id") Long id) {
-	
-		personaService.deleteById(id);
-		return "Persona eliminado";
+	public String eliminarPersona(@PathVariable("id") Long id) {
+			personaService.deleteById(id);
+			return "Persona eliminado";
 	}
-	
+	*/
 	
 	
 	

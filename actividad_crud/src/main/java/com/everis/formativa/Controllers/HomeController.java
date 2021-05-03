@@ -9,8 +9,6 @@ public class HomeController {
 
 	@RequestMapping("/")
 	public String home(Model model) {
-		
-		System.out.println("Estoy en el home");
 		return "FormPersona.jsp"; 
 		
 	}

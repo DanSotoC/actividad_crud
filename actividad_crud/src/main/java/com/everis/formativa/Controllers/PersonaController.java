@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.everis.formativa.Models.Persona;
 import com.everis.formativa.Services.PersonaService;
+import com.everis.formativa.Util.Validacion;
 
 
 @Controller
@@ -22,13 +23,17 @@ public class PersonaController {
 	public String personas(@RequestParam(value ="nombre") String nombre,
 			@RequestParam(value ="apellido") String apellido,
 			@RequestParam(value ="rut") String rut,
-			@RequestParam(value ="cargo") String email){
+			@RequestParam(value ="email") String email){
 		Persona person =  new Persona();
 		person.setNombre(nombre);
+		if(Validacion.validarRut(rut)) {
+			person.setRut(rut);
+		}
+		else {
+			person.setRut("");
+		}
 		person.setApellido(apellido);
-		person.setRut(rut);
 		person.setEmail(email);
-		
 		person = personService.guardarPersona(person);
 		return "redirect:/";
 	}
@@ -42,14 +47,13 @@ public class PersonaController {
 		return "PersonaList.jsp";
 	}
 	
-	@RequestMapping("/personas/eliminar/{id}")
+	@RequestMapping("/personas/eliminar/{id}}")
 	public String eliminarPersona(@PathVariable("id") Long id){
 		personService.deleteById(id);
 		return "redirect:/tabla_personas";
 	}
 	@RequestMapping("/personas/editar/{id}")
 	public String editPersona(@PathVariable("id") Long id){
-		
-		return "";
+			return "";
 	}
 }

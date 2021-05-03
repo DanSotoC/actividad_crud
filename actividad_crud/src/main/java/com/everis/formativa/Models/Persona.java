@@ -13,7 +13,7 @@ public class Persona {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Long idPersona;
+	Long id;
 	
 	String rut;
 	
@@ -37,12 +37,12 @@ public class Persona {
 		this.email = email;
 	}
 
-	public Long getIdPersona() {
-		return idPersona;
+	public Long getId() {
+		return id;
 	}
 
-	public void setIdPersona(Long idPersona) {
-		this.idPersona = idPersona;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getRut() {
