@@ -13,8 +13,8 @@ public class Persona {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
 	Long idPersona;
+	
 	String rut;
 	
 	@Size(min=3, max=20)

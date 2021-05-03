@@ -6,4 +6,5 @@ import com.everis.formativa.Models.Persona;
 
 public interface PersonaRepository extends JpaRepository<Persona, Long> {
 
+	
 }
