@@ -14,10 +14,11 @@ import com.everis.formativa.Services.PersonaService;
 import com.everis.formativa.Util.Validacion;
 
 
+
 @Controller
 public class PersonaController {
 	@Autowired
-	PersonaService personService;
+	PersonaService personaService;
 	
 	@RequestMapping("/personas")
 	public String personas(@RequestParam(value ="nombre") String nombre,
@@ -34,13 +35,13 @@ public class PersonaController {
 		}
 		person.setApellido(apellido);
 		person.setEmail(email);
-		person = personService.guardarPersona(person);
+		person = personaService.guardarPersona(person);
 		return "redirect:/";
 	}
 	@RequestMapping("/tabla_personas")
 	public String tablaPersonas(Model modelo){
 		ArrayList<Persona> personList = new ArrayList<Persona>();
-		personList = (ArrayList<Persona>)personService.allPersons();
+		personList = (ArrayList<Persona>)personaService.allPersons();
 		int largo = personList.size();
 		modelo.addAttribute("personList",personList);
 		modelo.addAttribute("largo",largo);
@@ -49,7 +50,7 @@ public class PersonaController {
 	
 	@RequestMapping("/personas/eliminar/{id}}")
 	public String eliminarPersona(@PathVariable("id") Long id){
-		personService.deleteById(id);
+		personaService.deleteById(id);
 		return "redirect:/tabla_personas";
 	}
 	@RequestMapping("/personas/editar/{id}")
